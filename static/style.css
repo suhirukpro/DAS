@@ -1,0 +1,66 @@
+/* Set the background color for the page */
+html {
+	background-color: #f5f5f5;
+}
+
+/* Set the font, line-height, and basic styles for the body */
+body {
+	color: rgb(40, 38, 38);
+    font-family: "Century Gothic";
+	font-size: 16px;
+	line-height: 1.5;
+	color: #333;
+	margin: 0 auto;
+	padding: 20px;
+	max-width: 1280px;
+	background-color: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the form and div elements */
+form,
+div {
+	border: none;
+	margin: 0 auto 5em auto;
+	width: 50em;
+	padding-bottom: 2em;
+}
+
+/* Style the heading */
+h1 {
+	font-family: "Century Gothic";
+	font-size: 2.5em;
+	font-weight: 700;
+	color: #333;
+	margin-bottom: 1em;
+	padding-bottom: 0.5em;
+	border-bottom: 3px solid #333;
+	background-image: url(../_images/icon_sprites_50.png);
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}
+
+/* Style the button */
+.example_a {
+    font-family: "Century Gothic";
+	display: inline-block;
+	padding: 15px 30px;
+	border-radius: 6px;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 2px;
+	background-color: #333;
+	color: #fff;
+	text-decoration: none;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+	transition: all 0.3s ease;
+}
+
+/* Style the button on hover */
+.example_a:hover {
+    font-family: "Century Gothic";
+	color: #333;
+	background-color: #fff;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+	transition: all 0.3s ease;
+}

@@ -1,0 +1,146 @@
+<html>
+
+<head>
+  <style>
+    body {
+      
+      background: linear-gradient(to bottom right, #e6c7f0, #f3e7fe, #e6c7f0);
+            color: rgb(40, 38, 38);
+            font-family: "Century Gothic";
+        }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    table,
+    th,
+    td {
+      border: 1px solid rgb(136, 45, 163);
+    }
+  
+    th,
+    td {
+      padding: 10px;
+      text-align: left;
+    }
+  
+    th {
+      background-color: #976fba; /* Change to green color */
+      color: white; /* Set font color to white */
+      font-size: 16px; /* Set font size */
+      font-weight: bold; /* Set font weight */
+    }
+  
+    .submit-btn {
+      background-color: #7158a9;
+      font-family: "Century Gothic";
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  
+    .result-container {
+      margin-top: 50px;
+    }
+  
+    .result-container h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+  
+    .result-container table {
+      margin-bottom: 20px;
+    }
+  
+    .result-container p {
+      font-size: 18px;
+    }
+  
+    .title {
+      font-size: 36px;
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+  
+    footer {
+      background-color: #f2f2f2;
+      padding: 10px;
+      text-align: center;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+    }
+  
+    footer p {
+      font-size: 16px;
+    }
+
+    /* Graphs and Visualizations */
+    .graph {
+      margin-bottom: 20px;
+    }
+  </style>
+  
+  <title>Twitter depression Analysis</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <header>
+    <h1 class="title">Depression Analysis from Tweets</h1>
+  </header>
+  <main>
+    <form action="{{ url_for('sentiment') }}" method="POST">
+      <textarea name="text1" placeholder="Paste you tweet here: ...." rows="10" cols="109"></textarea><br><br>
+      <input class="submit-btn" type="submit" value="Analyze by clicking here">
+    </form>
+    {% if final %}
+    <div class="result-container">
+      <h2>The tweet "{{ text1 }}" is {% if prediction[0] == 'Toxic' %}toxic{% else %}not toxic{% endif %}.</h2>
+      <h2>Score Table</h2>
+      <table>
+        <tr>
+          <th>Sentiment Metric</th>
+          <th>Score</th>
+        </tr>
+        <tr>
+          <td>Positive</td>
+          <td>{{text2}}</td>
+        </tr>
+        <tr>
+          <td>Neutral</td>
+          <td>{{text3}}</td>
+        </tr>
+        <tr>
+          <td>Negative</td>
+          <td>{{text5}}</td>
+        </tr>
+        <tr>
+          <td>Compound</td>
+          <td>{{text4}}</td>
+        </tr>
+      </table>
+    </div>
+    {% else %}
+    <p></p>
+    {% endif %}
+  </main>
+
+  <!-- <div class="graph">
+    <h2>Graph 3: Login Success vs. Failed</h2>
+    <canvas id="success-failure-chart"></canvas>
+  </div> -->
+  <footer>
+    <p>© 2023 Tweet depression Analysis</p>
+  </footer>
+</body>
+
+</html>
